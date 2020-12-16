@@ -10,11 +10,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
 import br.ce.wcaquino.tasksfrontend.model.Todo;
 
 @Controller
+@RequestMapping("")
 public class TasksController {
 	
 	@Value("${backend.host}")
@@ -60,7 +62,7 @@ public class TasksController {
 			model.addAttribute("todo", todo);
 			return "add"; 
 		} finally {
-			//model.addAttribute("todos", getTodos());
+			model.addAttribute("todos", getTodos());
 		}
 	}
 	
